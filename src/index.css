@@ -4,31 +4,44 @@
 
 body {
   font-family: sans-serif;
-  margin: 20px;
+  margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
 .square {
-  width: 35px;
-  height: 35px;
+  width: 60px; /* Diperbesar untuk mobile */
+  height: 60px; /* Diperbesar untuk mobile */
   border: 1px solid black;
   background: #fff;
-  font-size: 1.2rem;
+  font-size: 2rem; /* Diperbesar untuk mobile */
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 105px;
-  height: 105px;
+  width: 180px; /* Diperbesar untuk mobile */
+  height: 180px; /* Diperbesar untuk mobile */
+  margin: 0 auto; /* Tambahkan ini untuk memusatkan */
 }
 
 .status {
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Diperbesar untuk mobile */
+  text-align: center; /* Tambahkan ini untuk memusatkan teks */
+  width: 100%; /* Tambahkan ini agar teks berada di tengah secara horizontal */
 }
 
 .game {
   display: flex;
+  flex-direction: column; /* Ubah menjadi kolom untuk mobile */
+  align-items: center;
 }

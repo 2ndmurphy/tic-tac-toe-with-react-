@@ -25,7 +25,7 @@ function CalculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
 
-    if (squares[a] && squares[a] === squares[b] && squares[c]) {
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
   }
@@ -77,18 +77,23 @@ export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)])
   const currentSquares = history[history.length - 1]
 
-
   function handlePlay(nextSquares) {
-    setHistory([...history, nextSquares])
+    const newHistory = history.slice(0, history.length);
+    setHistory([...newHistory, nextSquares])
     setXIsNext(!xIsNext)
+  }
+
+  function jumpTo(move) {
+    setHistory(history.slice(0, move + 1));
+    setXIsNext((move % 2) === 0);
   }
 
   const moves = history.map((squares, move) => {
     let desc = '';
     if (move > 0) {
-      desc = 'Go to move #' + move;
+      desc = 'Pergi ke langkah #' + move;
     } else {
-      desc = 'Go to game start';
+      desc = 'Pergi ke awal permainan';
     }
 
     return (
